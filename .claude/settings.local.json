@@ -14,7 +14,9 @@
       "Bash(curl -s http://localhost:5173/src/components/Magnetic.jsx -o /dev/null -w \"Magnetic.jsx: %{http_code}\\\\n\")",
       "Bash(curl -s \"http://localhost:5173/src/components/Footer.css\" -o /dev/null -w \"Footer.css -> %{http_code}\\\\n\")",
       "Bash(curl -s -o /dev/null -w \"built / -> %{http_code}\\\\n\" \"http://localhost:4173/\")",
-      "Bash(curl -s -o /dev/null -w \"built /assets css -> %{http_code}\\\\n\" \"http://localhost:4173/$\\(grep -oE 'assets/index-[^\\\\\"]+\\\\.css' dist/index.html)"
+      "Bash(curl -s -o /dev/null -w \"built /assets css -> %{http_code}\\\\n\" \"http://localhost:4173/$\\(grep -oE 'assets/index-[^\\\\\"]+\\\\.css' dist/index.html)",
+      "Bash(npx vite *)",
+      "Bash(git checkout *)"
     ]
   }
 }

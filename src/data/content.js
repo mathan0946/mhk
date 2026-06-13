@@ -18,7 +18,7 @@ export const profile = {
     'about the messy real world.',
   ],
   intro:
-    'Third-year Computer Science student specializing in Artificial Intelligence at Amrita School of AI. I build systems where deep learning meets the physical world — 30+ shipped projects across healthcare, agriculture, education, and finance.',
+    'Third-year Computer Science student specializing in Artificial Intelligence at Amrita School of AI, joining Infineon Technologies, Bengaluru, as an 11-month intern from July 2026. I build systems where deep learning meets the physical world — 30+ shipped projects across healthcare, agriculture, education, and finance.',
   // A pull-stat that anchors credibility without bragging
   signal: {
     rank: '7th',
@@ -29,6 +29,7 @@ export const profile = {
     { value: '30+', label: 'projects shipped' },
     { value: '8.53', label: 'CGPA / 10' },
     { value: 'Top 0.1%', label: 'IIT KGP hackathon' },
+    { value: '11mo', label: 'Infineon internship · Jul ’26' },
   ],
 }
 
@@ -302,11 +303,17 @@ export const archive = [
 
 export const journey = [
   {
+    period: 'Jul 2026 — Jun 2027',
+    title: 'Incoming Intern — 11 months',
+    place: 'Infineon Technologies, Bengaluru',
+    detail: 'Joining July 1, 2026',
+    now: true,
+  },
+  {
     period: '2023 — 2027',
     title: 'B.Tech, Computer Science & Engineering (AI)',
     place: 'Amrita School of AI, Amrita Vishwa Vidyapeetham',
     detail: 'CGPA 8.53 / 10.0',
-    now: true,
   },
   {
     period: '2021 — 2023',
@@ -323,6 +330,10 @@ export const journey = [
 ]
 
 export const achievements = [
+  {
+    headline: 'Infineon, incoming',
+    body: '11-month internship at Infineon Technologies, Bengaluru — joining July 1, 2026, to work where silicon meets system intelligence.',
+  },
   {
     headline: '7th of 10,000',
     body: 'IIT Kharagpur Data Science Hackathon 2024 — a GenAI + zero-shot classification solution that placed in the top 0.1%.',
