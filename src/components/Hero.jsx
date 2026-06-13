@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
 import { profile } from '../data/content'
 import Magnetic from './Magnetic'
 import Counter from './Counter'
@@ -17,6 +17,10 @@ const line = {
 
 export default function Hero() {
   const heroRef = useRef(null)
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ['start start', 'end start'] })
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, 140])
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.92])
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0])
 
   // Move a soft spotlight to follow the cursor across the hero
   const onMove = (e) => {
@@ -31,7 +35,7 @@ export default function Hero() {
     <section id="top" className="hero" ref={heroRef} onMouseMove={onMove}>
       <div className="hero__spotlight" aria-hidden />
 
-      <div className="container hero__grid">
+      <motion.div className="container hero__grid" style={{ y: heroY, scale: heroScale, opacity: heroOpacity }}>
         {/* Left — portrait + identity */}
         <motion.aside
           className="hero__rail"
@@ -125,7 +129,7 @@ export default function Hero() {
             ))}
           </motion.dl>
         </div>
-      </div>
+      </motion.div>
 
       <div className="hero__scroll" aria-hidden>
         <span>scroll</span>

@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import { useRef } from 'react'
 import Hero from '../components/Hero'
 import Work from '../components/Work'
 import Journey from '../components/Journey'
@@ -11,14 +12,27 @@ const page = {
   exit: { opacity: 0, y: -12, transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1] } },
 }
 
+/** Section with scroll-driven scale + opacity that brightens as it enters view. */
+function ScrollSection({ children }) {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
+  const opacity = useTransform(scrollYProgress, [0, 0.25, 0.75, 1], [0.35, 1, 1, 0.35])
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.985, 1, 0.985])
+  return (
+    <motion.div ref={ref} style={{ opacity, scale }} className="scroll-section">
+      {children}
+    </motion.div>
+  )
+}
+
 export default function Landing() {
   return (
     <motion.main variants={page} initial="initial" animate="animate" exit="exit">
       <Hero />
-      <Work />
-      <Journey />
-      <Skills />
-      <Contact />
+      <ScrollSection><Work /></ScrollSection>
+      <ScrollSection><Journey /></ScrollSection>
+      <ScrollSection><Skills /></ScrollSection>
+      <ScrollSection><Contact /></ScrollSection>
     </motion.main>
   )
 }
