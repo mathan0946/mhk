@@ -33,7 +33,7 @@ export default function PhoneIntro() {
   const scale = useTransform(
     p,
     [0, 0.3, 0.7, 1],
-    [1, 1.04, 3.4, 5.2]
+    [1, 1.04, 3.4, 3.4]
   )
 
   // Bezel: thickness, radius and shadow all dissolve through phase 2.
@@ -52,6 +52,12 @@ export default function PhoneIntro() {
   // ---- aurora background fades as phone takes over
   const bgOpacity = useTransform(p, [0.55, 0.85], [1, 0])
 
+  // ---- side meta-text — fades + slides out as the phone takes over
+  const sideOpacity = useTransform(p, [0, 0.28], [1, 0])
+  const sideScale = useTransform(p, [0, 0.3], [1, 0.85])
+  const sideXLeft = useTransform(p, [0, 0.3], [0, -120])
+  const sideXRight = useTransform(p, [0, 0.3], [0, 120])
+
   // Live clock for the lock screen.
   const [now, setNow] = useState(() => new Date())
   useEffect(() => {
@@ -68,8 +74,53 @@ export default function PhoneIntro() {
           <span className="phone-intro__aurora phone-intro__aurora--a" />
           <span className="phone-intro__aurora phone-intro__aurora--b" />
           <span className="phone-intro__aurora phone-intro__aurora--c" />
+          <span className="phone-intro__grid" />
+          <span className="phone-intro__scan" />
+          <span className="phone-intro__particles">
+            {Array.from({ length: 26 }).map((_, i) => (
+              <i key={i} style={{
+                left: `${(i * 37) % 100}%`,
+                top: `${(i * 53) % 100}%`,
+                animationDelay: `${(i % 8) * 0.7}s`,
+                animationDuration: `${6 + (i % 5)}s`,
+              }} />
+            ))}
+          </span>
           <span className="phone-intro__grain" />
         </motion.div>
+
+        <motion.aside
+          className="phone-intro__side phone-intro__side--left"
+          style={{ opacity: sideOpacity, x: sideXLeft, scale: sideScale }}
+          aria-hidden
+        >
+          <span className="phone-intro__side-top">
+            <span className="phone-intro__side-dot" /> EST · 2026
+          </span>
+          <span className="phone-intro__side-mega">PORTFOLIO</span>
+          <span className="phone-intro__side-foot">
+            <span>11.0168° N</span>
+            <span>76.9558° E</span>
+            <span>COIMBATORE / IN</span>
+          </span>
+        </motion.aside>
+
+        <motion.aside
+          className="phone-intro__side phone-intro__side--right"
+          style={{ opacity: sideOpacity, x: sideXRight, scale: sideScale }}
+          aria-hidden
+        >
+          <span className="phone-intro__side-top phone-intro__side-top--end">
+            v01 / DRAFT
+            <span className="phone-intro__side-live"><i /> LIVE</span>
+          </span>
+          <span className="phone-intro__side-mega phone-intro__side-mega--end">AI / ML</span>
+          <span className="phone-intro__side-foot phone-intro__side-foot--end">
+            <span>BUILDING — SINCE</span>
+            <span>DAY ONE</span>
+            <span className="phone-intro__side-tick">→ SCROLL TO ENTER</span>
+          </span>
+        </motion.aside>
 
         <motion.div
           className="phone-intro__stage"
@@ -105,6 +156,16 @@ export default function PhoneIntro() {
                   <span className="phone-intro__wall phone-intro__wall--a" />
                   <span className="phone-intro__wall phone-intro__wall--b" />
                   <span className="phone-intro__wall phone-intro__wall--c" />
+                  <span className="phone-intro__wall-stars">
+                    {Array.from({ length: 18 }).map((_, i) => (
+                      <i key={i} style={{
+                        left: `${(i * 29) % 100}%`,
+                        top: `${(i * 41) % 100}%`,
+                        animationDelay: `${(i % 6) * 0.5}s`,
+                      }} />
+                    ))}
+                  </span>
+                  <span className="phone-intro__wall-pulse" />
                 </div>
                 <div className="phone-intro__lock-content">
                   <div className="phone-intro__status">
@@ -129,24 +190,11 @@ export default function PhoneIntro() {
                 className="phone-intro__site"
                 style={{ opacity: siteOpacity }}
               >
-                <div className="phone-intro__site-nav">
-                  <span className="phone-intro__site-logo">mathan.dev</span>
-                  <span className="phone-intro__site-links">
-                    <span>work</span>
-                    <span>about</span>
-                    <span>contact</span>
-                  </span>
-                </div>
-                <div className="phone-intro__site-hero">
-                  <span className="phone-intro__site-badge">
-                    <i /> AI / ML Engineer
-                  </span>
-                  <h2 className="phone-intro__site-headline">
-                    I teach machines to <em>see, read, and reason</em> about the messy real world.
+                <div className="phone-intro__site-greeting">
+                  <span className="phone-intro__site-kicker">— Hey there,</span>
+                  <h2 className="phone-intro__site-name">
+                    I’m <em>Mathan</em>.
                   </h2>
-                  <p className="phone-intro__site-sub">
-                    Scroll to continue ↓
-                  </p>
                 </div>
               </motion.div>
             </div>

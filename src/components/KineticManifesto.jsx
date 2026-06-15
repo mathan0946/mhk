@@ -4,7 +4,6 @@ import './KineticManifesto.css'
 
 const PHRASES = [
   { count: '01', big: 'I SHIP', tail: 'THINGS.', sub: '30+ public repos. No vaporware.' },
-  { count: '02', big: 'NOW —', tail: 'INFINEON.', sub: '11 months. Bengaluru. July 2026.' },
 ]
 
 /* A pinned, scroll-driven kinetic-typography section.
