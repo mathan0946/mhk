@@ -6,6 +6,7 @@ import Footer from './components/Footer'
 import ScrollProgress from './components/ScrollProgress'
 import Ambient from './components/Ambient'
 import Cursor from './components/Cursor'
+import SmoothScroll from './components/SmoothScroll'
 import Landing from './pages/Landing'
 import ArchivePage from './pages/ArchivePage'
 import './App.css'
@@ -13,14 +14,24 @@ import './App.css'
 function ScrollManager() {
   const { pathname, hash } = useLocation()
   useEffect(() => {
+    const lenis = window.__lenis
     if (hash) {
-      const el = document.getElementById(hash.replace('#', ''))
+      const id = hash.replace('#', '')
+      const el = document.getElementById(id)
       if (el) {
-        requestAnimationFrame(() => el.scrollIntoView({ behavior: 'smooth' }))
+        if (lenis) {
+          requestAnimationFrame(() => lenis.scrollTo(el, { offset: -80 }))
+        } else {
+          requestAnimationFrame(() => el.scrollIntoView({ behavior: 'smooth' }))
+        }
         return
       }
     }
-    window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' })
+    if (lenis) {
+      lenis.scrollTo(0, { immediate: true })
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' })
+    }
   }, [pathname, hash])
   return null
 }
@@ -41,6 +52,7 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <BrowserRouter>
+      <SmoothScroll />
       <Ambient />
       <Cursor />
       <ScrollProgress />

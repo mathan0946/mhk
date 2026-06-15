@@ -1,6 +1,9 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import Hero from '../components/Hero'
+import PhoneIntro from '../components/PhoneIntro'
+import KineticManifesto from '../components/KineticManifesto'
+import Marquee from '../components/Marquee'
 import Work from '../components/Work'
 import Journey from '../components/Journey'
 import Skills from '../components/Skills'
@@ -28,7 +31,10 @@ function ScrollSection({ children }) {
 export default function Landing() {
   return (
     <motion.main variants={page} initial="initial" animate="animate" exit="exit">
+      <PhoneIntro />
       <Hero />
+      <KineticManifesto />
+      <Marquee />
       <ScrollSection><Work /></ScrollSection>
       <ScrollSection><Journey /></ScrollSection>
       <ScrollSection><Skills /></ScrollSection>

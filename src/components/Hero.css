@@ -25,6 +25,31 @@
 }
 .hero__grid, .hero__scroll { position: relative; z-index: 1; }
 
+/* Colossal background letter — parallax drifts slower than content */
+.hero__mono {
+  position: absolute;
+  right: -8vw;
+  bottom: -18vw;
+  z-index: 0;
+  font-family: var(--display);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(32rem, 62vw, 70rem);
+  line-height: 0.78;
+  color: rgba(255, 255, 255, 0.085);
+  letter-spacing: -0.05em;
+  pointer-events: none;
+  user-select: none;
+  text-shadow: 0 0 120px rgba(255, 255, 255, 0.08);
+  will-change: transform;
+}
+@media (max-width: 720px) {
+  .hero__mono { font-size: clamp(20rem, 90vw, 30rem); right: -10vw; bottom: -22vw; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero__mono { display: none; }
+}
+
 /* "available" status badge */
 .hero__badge {
   display: inline-flex;

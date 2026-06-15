@@ -22,6 +22,9 @@ export default function Hero() {
   const heroY = useTransform(scrollYProgress, [0, 1], [0, 140])
   const heroScale = useTransform(scrollYProgress, [0, 1], [1, 0.92])
   const heroOpacity = useTransform(scrollYProgress, [0, 0.85], [1, 0])
+  // Background "M" drifts slower than content for depth (parallax)
+  const monoY = useTransform(scrollYProgress, [0, 1], [0, -220])
+  const monoX = useTransform(scrollYProgress, [0, 1], [0, 60])
 
   // Move a soft spotlight to follow the cursor across the hero
   const onMove = (e) => {
@@ -35,6 +38,13 @@ export default function Hero() {
   return (
     <section id="top" className="hero" ref={heroRef} onMouseMove={onMove}>
       <div className="hero__spotlight" aria-hidden />
+      <motion.span
+        className="hero__mono"
+        aria-hidden
+        style={{ y: monoY, x: monoX }}
+      >
+        M
+      </motion.span>
 
       <motion.div className="container hero__grid" style={{ y: heroY, scale: heroScale, opacity: heroOpacity }}>
         {/* Left — portrait + identity */}
