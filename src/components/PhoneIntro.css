@@ -130,6 +130,7 @@
   position: absolute;
   top: 0; bottom: 0;
   width: clamp(140px, 22vw, 320px);
+  overflow: visible;
   z-index: 3;
   display: flex;
   flex-direction: column;
@@ -145,6 +146,48 @@
 }
 .phone-intro__side--left { left: 0; align-items: flex-start; }
 .phone-intro__side--right { right: 0; align-items: flex-end; text-align: right; }
+
+/* Big stylish welcome block on the left side */
+.phone-intro__welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin: auto 0 auto clamp(5rem, 14vw, 14rem);
+  text-transform: none;
+  letter-spacing: 0;
+}
+.phone-intro__welcome-kicker {
+  font-family: var(--mono, ui-monospace, monospace);
+  font-size: 0.68rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.55);
+}
+.phone-intro__welcome-title {
+  margin: 0;
+  font-family: var(--display, 'Times New Roman', serif);
+  font-weight: 300;
+  font-size: clamp(3.2rem, 6.2vw, 6.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: #fff;
+  text-shadow: 0 4px 32px rgba(255, 255, 255, 0.12);
+}
+.phone-intro__welcome-title em {
+  font-style: italic;
+  background: linear-gradient(120deg, #ffffff 0%, #ffffff 35%, #6a6a78 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.phone-intro__welcome-sub {
+  font-family: var(--mono, ui-monospace, monospace);
+  font-size: 0.62rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
 
 .phone-intro__side-top {
   display: inline-flex;
@@ -459,7 +502,7 @@
   max-width: 200px;
   height: auto;
   object-fit: contain;
-  filter: grayscale(1) brightness(1.05) contrast(1.05);
+  filter: none;
 }
 .phone-intro__site-greeting {
   display: flex;
@@ -496,12 +539,12 @@
 /* ---------------- 3D model — right of the phone ------------------ */
 .phone-intro__model {
   position: absolute;
-  right: clamp(2vw, 6vw, 10vw);
+  right: clamp(4vw, 10vw, 15vw);
   top: 50%;
   transform-origin: center center;
-  width: clamp(320px, 32vw, 520px);
-  height: clamp(380px, 60vh, 640px);
-  margin-top: calc(-1 * clamp(190px, 30vh, 320px));
+  width: clamp(280px, 27vw, 460px);
+  height: clamp(320px, 52vh, 560px);
+  margin-top: calc(-1 * clamp(160px, 26vh, 280px));
   z-index: 4;
   pointer-events: auto;
   will-change: transform, opacity;

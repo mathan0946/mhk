@@ -98,6 +98,13 @@ export default function PhoneIntro() {
           <span className="phone-intro__side-top">
             <span className="phone-intro__side-dot" /> EST · 2026
           </span>
+          <div className="phone-intro__welcome">
+            <span className="phone-intro__welcome-kicker">— welcome to</span>
+            <h1 className="phone-intro__welcome-title">
+              the <em>portfolio</em>
+            </h1>
+            <span className="phone-intro__welcome-sub">an interactive experience</span>
+          </div>
           <span className="phone-intro__side-foot">
             <span>11.0168° N</span>
             <span>76.9558° E</span>

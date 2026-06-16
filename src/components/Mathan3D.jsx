@@ -1,5 +1,5 @@
 import { Suspense, useMemo, useRef } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas } from '@react-three/fiber'
 import { useGLTF, OrbitControls } from '@react-three/drei'
 import { Box3, Vector3 } from 'three'
 import './Mathan3D.css'
@@ -23,10 +23,6 @@ function Model({ idleSpin = 0.25 }) {
     return { scale, offset }
   }, [scene])
 
-  // Gentle idle rotation — OrbitControls override when user is dragging.
-  useFrame((_, dt) => {
-    if (ref.current) ref.current.rotation.y += dt * idleSpin
-  })
 
   return (
     <group ref={ref} scale={fit.scale} position={fit.offset}>
