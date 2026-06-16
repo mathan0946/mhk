@@ -2,8 +2,10 @@ import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import './PhoneIntro.css'
 
-const FRAME_COUNT = 39
-const FRAME_PATH = (i) => `/frames/hi/${String(i).padStart(2, '0')}.png`
+// 80 frames on disk (01–80). We skip frame 01 — the rendered sequence is
+// frames 02 → 80, i.e. 79 playable frames indexed 0..78.
+const FRAME_COUNT = 79
+const FRAME_PATH = (i) => `/frames/hi/${String(i + 2).padStart(2, '0')}.png`
 
 /**
  * Scroll-driven cinematic intro — single pinned section that does:
@@ -106,12 +108,12 @@ export default function PhoneIntro() {
       const dw = iw * scale, dh = ih * scale
       ctx.drawImage(img, (cw - dw) / 2, (ch - dh) / 2, dw, dh)
     }
-    for (let i = 1; i <= FRAME_COUNT; i++) {
+    for (let i = 0; i < FRAME_COUNT; i++) {
       const img = new Image()
       img.src = FRAME_PATH(i)
       img.onload = () => {
         loaded++
-        if (i === 1 && !cancelled) drawFirstFrameNow()
+        if (i === 0 && !cancelled) drawFirstFrameNow()
         if (loaded === FRAME_COUNT && !cancelled) setFramesReady(true)
       }
       img.onerror = () => {
