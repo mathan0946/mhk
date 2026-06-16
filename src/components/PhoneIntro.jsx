@@ -2,9 +2,9 @@ import { useEffect, useRef, useState } from 'react'
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion'
 import './PhoneIntro.css'
 
-// 80 frames on disk (01–80). We skip frame 01 — the rendered sequence is
-// frames 02 → 80, i.e. 79 playable frames indexed 0..78.
-const FRAME_COUNT = 79
+// 78 frames on disk (01–78). We skip frame 01 — the rendered sequence is
+// frames 02 → 78, i.e. 77 playable frames indexed 0..76.
+const FRAME_COUNT = 77
 const FRAME_PATH = (i) => `/frames/hi/${String(i + 2).padStart(2, '0')}.png`
 
 /**
