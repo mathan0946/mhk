@@ -289,7 +289,10 @@
   position: absolute;
   inset: 0;
   overflow: hidden;
-  background: linear-gradient(160deg, #050507 0%, #1a1a22 45%, #2a2a32 100%);
+  background:
+    linear-gradient(160deg, rgba(5,5,7,0.25) 0%, rgba(26,26,34,0.15) 45%, rgba(42,42,50,0.25) 100%),
+    url('/wallpaper.png') center/cover no-repeat;
+  background-color: #050507;
 }
 .phone-intro__wall {
   position: absolute;

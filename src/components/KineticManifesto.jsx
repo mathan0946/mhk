@@ -10,7 +10,9 @@ const PHRASES = [
    Outer height = N × 100vh; inner sticks while phrases swap. */
 export default function KineticManifesto() {
   const ref = useRef(null)
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end end'] })
+  // Start the animation a bit before the section's top reaches the
+  // viewport — gives the headline a running start as the user scrolls in.
+  const { scrollYProgress } = useScroll({ target: ref, offset: ['start 0.85', 'end end'] })
 
   // Background slab translates with scroll for parallax depth
   const slabY = useTransform(scrollYProgress, [0, 1], ['0%', '-40%'])
@@ -21,7 +23,7 @@ export default function KineticManifesto() {
     <section
       ref={ref}
       className="kinetic"
-      style={{ height: `${PHRASES.length * 55 + 70}vh` }}
+      style={{ height: `${PHRASES.length * 90 + 40}vh` }}
       aria-label="Manifesto"
     >
       <div className="kinetic__sticky">
@@ -43,7 +45,9 @@ export default function KineticManifesto() {
           const isFirst = i === 0
           const isLast = i === PHRASES.length - 1
           const fade = 0.03
-          const entryFade = 0.05
+          // Slower entry — gives the headline room to breathe instead of
+          // snapping in instantly. (Only matters for the first phrase.)
+          const entryFade = 0.45
           const holdStart = i * slot
           const holdEnd = (i + 1) * slot
           // Out finishes before In begins so the two never visibly overlap.
