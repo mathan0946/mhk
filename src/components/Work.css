@@ -279,6 +279,10 @@
   .project--flip .project__visual { order: 0; }
   .pv { aspect-ratio: 16 / 10; }
 }
+@media (max-width: 540px) {
+  .project { gap: 1.4rem; }
+  .pv { aspect-ratio: 4 / 3; border-radius: 14px; }
+}
 
 /* ============================================================
    Horizontal pin-scroll Work track (>= 900px)

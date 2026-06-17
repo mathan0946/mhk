@@ -573,10 +573,12 @@
 }
 .phone-intro__site-hi {
   flex: 0 0 auto;
-  width: 32%;
-  max-width: 200px;
+  width: 28%;
+  max-width: 160px;
+  max-height: 70%;
   height: auto;
   object-fit: contain;
+  object-position: center;
   filter: none;
 }
 .phone-intro__site-greeting {
@@ -598,7 +600,7 @@
   margin: 0;
   font-family: var(--display, 'Times New Roman', serif);
   font-weight: 300;
-  font-size: 38px;
+  font-size: clamp(22px, 5.5cqw, 38px);
   line-height: 1;
   letter-spacing: -0.04em;
   color: #fff;
@@ -669,8 +671,13 @@
 
 /* ---------------- Responsive --------------------------------------- */
 @media (max-width: 720px) {
-  .phone-intro__stage { width: 220px; }
+  .phone-intro { height: 600vh; }
+  .phone-intro__stage { width: min(70vw, 240px); }
   .phone-intro__time { font-size: 62px; margin-top: 44px; }
+  .phone-intro__site-hi { width: 26%; max-width: 130px; }
+  .phone-intro__site-name { font-size: clamp(20px, 5cqw, 32px); }
+  .phone-intro__hint { font-size: 0.6rem; gap: 0.5rem; bottom: 3vh; }
+  .phone-intro__hint-line { width: 40px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

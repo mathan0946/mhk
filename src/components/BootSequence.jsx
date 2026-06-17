@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import Mathan3D from './Mathan3D'
 import './BootSequence.css'
 
 const LINES = [
@@ -102,9 +101,16 @@ export default function BootSequence({ onComplete }) {
           <span className="boot__scan" aria-hidden />
           <span className="boot__vignette" aria-hidden />
 
-          {/* 3D hologram of Mathan — sits at the heart of the boot screen */}
-          <div className="boot__model" aria-hidden>
-            <Mathan3D />
+          {/* Minimal animated centerpiece — concentric rings + crosshair */}
+          <div className="boot__orb" aria-hidden>
+            <span className="boot__orb-ring boot__orb-ring--1" />
+            <span className="boot__orb-ring boot__orb-ring--2" />
+            <span className="boot__orb-ring boot__orb-ring--3" />
+            <span className="boot__orb-core" />
+            <span className="boot__orb-cross boot__orb-cross--h" />
+            <span className="boot__orb-cross boot__orb-cross--v" />
+            <span className="boot__orb-arc boot__orb-arc--1" />
+            <span className="boot__orb-arc boot__orb-arc--2" />
           </div>
 
           {/* Counter — moves to the side so it doesn't overlap the model */}

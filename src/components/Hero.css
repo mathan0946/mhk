@@ -301,12 +301,21 @@
 }
 
 @media (max-width: 860px) {
+  .hero { padding-top: 90px; padding-bottom: 2rem; }
   .hero__grid { grid-template-columns: 1fr; gap: 2.4rem; }
   .hero__rail { flex-direction: row; align-items: center; gap: 1.4rem; }
   .hero__portrait { max-width: 150px; }
   .hero__scroll { display: none; }
+  .hero__intro { margin-top: 1.4rem; font-size: 1rem; }
+  .hero__cta { margin-top: 1.8rem; gap: 0.7rem; }
+  .hero__stats { margin-top: 2rem; gap: 1.4rem 2rem; padding-top: 1.3rem; }
 }
 @media (max-width: 480px) {
-  .hero__rail { flex-direction: column; align-items: flex-start; }
-  .hero__portrait { max-width: 180px; align-self: center; }
+  .hero { padding-top: 84px; }
+  .hero__rail { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .hero__portrait { max-width: 200px; align-self: center; }
+  .hero__badge { font-size: 0.66rem; padding: 0.45rem 0.8rem; margin-bottom: 1.2rem; }
+  .btn { padding: 0.78rem 1.3rem; font-size: 0.9rem; }
+  .hero__cta { width: 100%; }
+  .hero__cta .btn { flex: 1 1 auto; justify-content: center; }
 }

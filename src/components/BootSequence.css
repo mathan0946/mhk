@@ -130,21 +130,100 @@ body.is-booting .scroll-progress { display: none !important; }
 }
 .boot__hex-strong { color: rgba(255, 255, 255, 0.85); }
 
-/* ---------------- 3D model centerpiece --------------------------- */
-.boot__model {
+/* ---------------- Minimal centerpiece — rings + crosshair --------- */
+.boot__orb {
   position: absolute;
   left: 50%;
   top: 50%;
-  width: clamp(320px, 38vw, 620px);
-  height: clamp(380px, 64vh, 720px);
+  width: clamp(220px, 28vw, 380px);
+  height: clamp(220px, 28vw, 380px);
   transform: translate(-50%, -50%);
   z-index: 2;
-  pointer-events: auto;
+  pointer-events: none;
 }
-.boot__model canvas {
-  display: block !important;
-  width: 100% !important;
-  height: 100% !important;
+.boot__orb-ring,
+.boot__orb-arc,
+.boot__orb-core,
+.boot__orb-cross {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+}
+.boot__orb-ring {
+  width: 100%;
+  height: 100%;
+  margin: -50% 0 0 -50%;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  animation: bootOrbPulse 3.4s ease-in-out infinite;
+}
+.boot__orb-ring--1 { transform: translate(-50%, -50%) scale(1); }
+.boot__orb-ring--2 {
+  width: 72%; height: 72%;
+  margin: -36% 0 0 -36%;
+  border-color: rgba(255, 255, 255, 0.5);
+  animation-delay: 0.4s;
+  animation-duration: 3s;
+}
+.boot__orb-ring--3 {
+  width: 44%; height: 44%;
+  margin: -22% 0 0 -22%;
+  border-color: rgba(255, 255, 255, 0.7);
+  animation-delay: 0.8s;
+  animation-duration: 2.6s;
+}
+@keyframes bootOrbPulse {
+  0%, 100% { opacity: 0.35; transform: translate(-50%, -50%) scale(1); }
+  50%      { opacity: 0.95; transform: translate(-50%, -50%) scale(1.04); }
+}
+
+/* Solid core dot */
+.boot__orb-core {
+  width: 10px; height: 10px;
+  margin: -5px 0 0 -5px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 28px rgba(255, 255, 255, 0.85);
+  animation: bootOrbCore 1.6s ease-in-out infinite;
+}
+@keyframes bootOrbCore {
+  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.85; }
+  50%      { transform: translate(-50%, -50%) scale(1.4); opacity: 1; }
+}
+
+/* Crosshair */
+.boot__orb-cross {
+  background: rgba(255, 255, 255, 0.25);
+  pointer-events: none;
+}
+.boot__orb-cross--h {
+  width: 100%; height: 1px;
+  margin-left: -50%;
+}
+.boot__orb-cross--v {
+  width: 1px; height: 100%;
+  margin-top: -50%;
+}
+
+/* Rotating arc accents */
+.boot__orb-arc {
+  width: 86%; height: 86%;
+  margin: -43% 0 0 -43%;
+  border-radius: 50%;
+  border: 1px dashed rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4) transparent transparent transparent;
+  animation: bootOrbSpin 9s linear infinite;
+}
+.boot__orb-arc--2 {
+  width: 58%; height: 58%;
+  margin: -29% 0 0 -29%;
+  border-color: transparent transparent rgba(255, 255, 255, 0.55) transparent;
+  animation-direction: reverse;
+  animation-duration: 6s;
+}
+@keyframes bootOrbSpin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
 /* ---------------- The big counter — pushed to the side ----------- */
@@ -310,7 +389,8 @@ body.is-booting .scroll-progress { display: none !important; }
 
 /* ---------------- Reduced motion --------------------------------- */
 @media (prefers-reduced-motion: reduce) {
-  .boot__noise, .boot__scan, .boot__hex, .boot__dot, .boot__hud-strong { animation: none; }
+  .boot__noise, .boot__scan, .boot__hex, .boot__dot, .boot__hud-strong,
+  .boot__orb-ring, .boot__orb-arc, .boot__orb-core { animation: none; }
 }
 
 /* ---------------- Mobile ---------------------------------------- */
@@ -321,6 +401,6 @@ body.is-booting .scroll-progress { display: none !important; }
   .boot__bar { left: 1.1rem; right: 1.1rem; bottom: 2.4rem; }
   .boot__count { font-size: clamp(3.5rem, 16vw, 6rem); }
   .boot__center { right: 1rem; }
-  .boot__model { width: 88vw; height: 50vh; }
+  .boot__orb { width: 70vw; height: 70vw; max-width: 320px; max-height: 320px; }
   .boot__enter { font-size: 0.66rem; right: 1rem; }
 }
