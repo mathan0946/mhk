@@ -330,12 +330,6 @@ export default function PhoneIntro() {
                 className="phone-intro__site"
                 style={{ opacity: siteOpacity }}
               >
-                <img
-                  src="/hey.png"
-                  alt=""
-                  className="phone-intro__site-hi"
-                  aria-hidden
-                />
                 <div className="phone-intro__site-greeting">
                   <span className="phone-intro__site-kicker">— Hey there,</span>
                   <h2 className="phone-intro__site-name">
