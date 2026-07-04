@@ -1,9 +1,9 @@
-# Mathana Guru Sabareesan — Portfolio
+# Mhokesh P — Portfolio
 
-A premium, editorial-feeling portfolio for an AI/ML engineer. Deliberately avoids
-the usual AI-portfolio clichés (dark mode, neon, animated grids, particles). Instead:
-warm paper tones, a single clay accent, serif display type, and whitespace as the
-primary design element.
+A premium, editorial-feeling portfolio for a Computer Science and AI student.
+Deliberately avoids the usual AI-portfolio clichés (dark mode, neon, animated grids,
+particles). Instead: warm paper tones, a single clay accent, serif display type, and
+whitespace as the primary design element.
 
 ## Design direction
 - **Palette:** cream paper (`--paper`) + ink + one warm clay accent. No gradients-as-decoration, no dark mode.
@@ -12,13 +12,13 @@ primary design element.
   expand-on-hover skill layers, scroll progress bar. All respect `prefers-reduced-motion`.
 
 ## Sections
-1. **Hero** — typographic manifesto + asymmetric identity rail + a "7th of 10,000" signal stat.
+1. **Hero** — typographic manifesto + asymmetric identity rail + a "7th among 10,000+" signal stat.
 2. **Work** — three projects, each an alternating asymmetric spread with a generative,
    domain-themed CSS visual (sensor field / document / pixel grid) and parallax.
 3. **Journey** — a "now"-anchored timeline spine with achievement notes offset to one side.
 4. **Skills** — grouped by the *role they play in a system* (intelligence → generation → shipping),
    as interactive expandable layers rather than a tag cloud or bars.
-5. **Contact** — dark closing panel with a warm glow and real links.
+5. **Contact** — dark closing panel with a warm glow and the resume's contact details.
 
 ## Run
 

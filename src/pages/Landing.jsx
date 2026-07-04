@@ -2,7 +2,6 @@ import { motion, useScroll, useTransform } from 'framer-motion'
 import { useRef, useState } from 'react'
 import Hero from '../components/Hero'
 import BootSequence from '../components/BootSequence'
-import PhoneIntro from '../components/PhoneIntro'
 import KineticManifesto from '../components/KineticManifesto'
 import Marquee from '../components/Marquee'
 import Work from '../components/Work'
@@ -34,7 +33,6 @@ export default function Landing() {
   return (
     <motion.main variants={page} initial="initial" animate="animate" exit="exit">
       {!booted && <BootSequence onComplete={() => setBooted(true)} />}
-      <PhoneIntro />
       <Hero />
       <KineticManifesto />
       <Marquee />

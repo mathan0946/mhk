@@ -74,7 +74,7 @@ export default function Nav() {
         {/* TOP — white header band with the brand name */}
         <div className="nav__top">
           <Link to="/" className="nav__brand" onClick={() => setOpen(false)}>
-            <span className="nav__brand-text">MATHAN</span>
+            <span className="nav__brand-text">Mhokesh</span>
             <span className="nav__brand-sub">AI / ML Engineer</span>
           </Link>
 
