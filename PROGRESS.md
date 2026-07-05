@@ -119,7 +119,7 @@ Notes:
 
 ### Stretch / wishlist
 - 3D scene route (`/lab` or `/play`) — a single page that goes full Lusion: shader playground, scroll-driven scene, fully WebGL. Sandbox for techniques without risking the main portfolio's polish.
-- Custom domain + email forwarder so recruiters see `hi@mathana.dev` instead of gmail.
+- Custom domain + email forwarder so recruiters see `hi@mhokesh.dev` instead of gmail.
 - Light-mode variant — current site is dark-only; a toggle would broaden first-impression appeal in slides/decks.
 - Replace placeholder portrait with a properly-shot one (B&W, matching the site's grading) before recruiter season.
 - Open-graph card per project so shared links don't fall back to the generic hero.

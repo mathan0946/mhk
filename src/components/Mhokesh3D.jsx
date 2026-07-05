@@ -2,9 +2,9 @@ import { Suspense, useMemo, useRef } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import { useGLTF, OrbitControls } from '@react-three/drei'
 import { Box3, Vector3 } from 'three'
-import './Mathan3D.css'
+import './Mhokesh3D.css'
 
-const MODEL_URL = '/Mathan.glb'
+const MODEL_URL = '/Mhokesh.glb'
 const TARGET_SIZE = 0.7   // smaller = model occupies less of the frame
 const Y_LIFT = 0.1        // positive = move model up in the canvas
 
@@ -36,7 +36,7 @@ function Model({ idleSpin = 0.12 }) {
   )
 }
 
-export default function Mathan3D() {
+export default function Mhokesh3D() {
   return (
     <div className="holo">
       {/* Scanlines overlay across the hologram column */}

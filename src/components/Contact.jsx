@@ -4,8 +4,8 @@ import './Contact.css'
 
 const links = [
   { label: 'Email', value: profile.email, href: `mailto:${profile.email}` },
-  { label: 'LinkedIn', value: '/in/mathana-guru-sabareesan', href: profile.linkedin },
-  { label: 'GitHub', value: '/mathan0946', href: profile.github },
+  { label: 'LinkedIn', value: '/in/mhokesh', href: profile.linkedin },
+  { label: 'GitHub', value: '/mhokesh', href: profile.github },
   { label: 'Phone', value: profile.phone, href: `tel:${profile.phone.replace(/\s/g, '')}` },
 ]
 
